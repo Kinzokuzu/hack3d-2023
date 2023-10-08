@@ -1,23 +1,5 @@
 # Used for image manipulation
 from PIL import Image
-<<<<<<< HEAD
-# Used for getting directory with the image collection
-import os
-
-# Will keep track of name & amount of degrees to counter rotate
-i = 0
-
-directory = "Hack-Gear"
-for filename in os.listdir(directory):
-    # Opens the images in order
-    file_path = os.path.join(directory, filename)
-    img = Image.open(file_path)
-
-    # Counter rotates by i degrees 
-    rot_img = img.rotate(-i)
-
-    # Crops the edges for better results
-=======
 import PIL.ImageOps
 import cv2
 # Used for getting directory with the image collection
@@ -51,17 +33,10 @@ for image in os.listdir(dir):
     rot_img = img.rotate(-x)
 
     # Crops the edges
->>>>>>> master
     width, height = rot_img.size
     left = 100; top = 100; right = 3900; bottom = 3900
     crop_rot_img = rot_img.crop((left, top, right, bottom))
 
-<<<<<<< HEAD
-    # Names and saves images to current directory
-    crop_rot_img.save("Ball_rec"+str(i)+".jpg")
-    img.close()
-    i += 1
-=======
     # Names and saves images to new directory
     crop_rot_img.save(f"{new_dir}/Ball_rec"+str(x)+".jpg")
     img.close()
@@ -157,4 +132,3 @@ for image in os.listdir(dir):
     cv2.imwrite(f"{final_dir}/Ball_rec"+str(x)+".jpg", image)
 
     x += 1
->>>>>>> master
